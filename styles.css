@@ -1,0 +1,139 @@
+@import url('https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible+Next:ital,wght@0,200..800;1,200..800&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap');
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: Inter, Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+body{
+    background-color: #080818;
+}
+
+.container{
+    margin: 20vh auto;
+    height: 100vh;
+    height: 100dvh;
+    width: 90%;
+    max-width: 1250px;
+}
+
+.content{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+
+    min-height: 320px;
+    max-height: 600px;
+}
+
+@property --angle {
+    syntax: "<angle>";
+    initial-value: 0deg;
+    inherits: false;
+}
+
+.box{
+    cursor: pointer;
+    border-radius: 12px;
+    position: relative;
+    max-width: 450px;
+    min-height: 300px;
+    max-height: 500px;
+    
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    text-align: center;
+    color: #fff;
+}
+
+.box::after , .box::before{
+    content: "";
+    position: absolute;
+    inset: -3px;
+    border-radius: inherit;
+    z-index: -1;
+    animation: 4s spin linear infinite;
+    
+    background-image: conic-gradient(from var(--angle), #390ed6, #ae00ff, #ff00f2, #0066ff,#390ed6);
+}
+
+@keyframes spin{
+    from{
+        --angle: 0deg;
+    }
+    to{
+        --angle: 360deg;
+    }
+}
+
+.box::before{
+    filter: blur(2.5em);
+    opacity: 1;
+}
+
+h2{
+    color: #ffffff69;
+    font-size: 2.25rem;
+    text-shadow: -2px 2px 1px #ff454581;
+}
+
+.hr{
+    width: 85%;
+    margin: auto;
+}
+
+hr{
+    background-image: linear-gradient(to right, #ffffffc0, #ff4545b9, #ffffffc0);
+    height: 2px;    
+    border: none;
+}
+
+.text {
+    display: flex;
+    justify-content: center;
+    align-items: end;
+    height: 100%;
+}
+
+.p {
+    margin-bottom: 55px;
+}
+
+p{
+    padding: 0px 2px;
+    background-color: #ffffff13;
+    border-radius: 10px;
+}
+
+br{
+    display: none;
+}
+
+@media screen and (max-width: 991px) {
+    .content{
+        display: flex;
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .box {
+        padding-bottom: 10px;
+        touch-action: manipulation;
+        -webkit-tap-highlight-color: transparent;
+    }
+
+    .text {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        text-align: center;
+        width: max-content;
+    }
+
+    br{
+        display: flex;
+    }
+}

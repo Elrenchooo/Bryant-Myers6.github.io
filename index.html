@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="styles.css">
+    <title>Bryant Myers 6</title>
+</head>
+<body>
+    <div class="container"> 
+        <div class="content">
+            <div class="box" onclick="playMusic(this)" style="background-image: url(img/Bryant-Myers.jpg);">
+                <h2>Bryant Myers</h2>
+                <div class="hr"><hr></div>
+                <div class="text">
+                    <div class="p">
+                        <audio id="music1"
+                            src="audio/mix_2m06s (audio-joiner.com).mp3" type="audio/mpeg">
+                        </audio>
+                        <p>
+                            No sé si esto es algo correcto <br> o me voy a equivocar 
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box" onclick="playMusic(this)" style="background-image: url(img/Brayan-miyers.jpg);">
+                <h2>Bryant Myers</h2>
+                <div class="hr"><hr></div>
+                <div class="text">
+                    <div class="p">
+                        <audio id="music2"
+                            src="audio/mix_1m42s (audio-joiner.com).mp3" type="audio/mpeg">
+                        </audio>
+                        <p>
+                            Pero el momento, me lo quiero disfrutar
+                        </p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="box" onclick="playMusic(this)" style="background-image: url(img/bryant-myers_.jpg);">
+                <h2>Bryant Myers</h2>
+                <div class="hr"><hr></div>
+                <div class="text">
+                    <div class="p">
+                        <audio id="music3"
+                            src="audio/mix_2m33s (audio-joiner.com).mp3" type="audio/mpeg">
+                        </audio>
+                        <p>
+                            Le gustan los temas suci, no los cursi'
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+<script>
+    let clickCount = 0;
+        let clickTimer;
+
+        function playMusic(card) {
+            let audio = card.querySelector("audio");
+            clickCount++;
+
+            if (clickCount === 1) {
+                clickTimer = setTimeout(() => {
+                    if (audio.paused) {
+                        document.querySelectorAll("audio").forEach(el => {
+                            if (el !== audio) {
+                                el.pause();
+                            }
+                        });
+                        audio.play();
+                    } else {
+                        audio.pause();
+                    }
+                    clickCount = 0;
+                }, 300);
+            } else if (clickCount === 2) {
+                clearTimeout(clickTimer);
+                audio.pause();
+                audio.currentTime = 0;
+                clickCount = 0;
+            }
+        }
+</script>
+
+
+</body>
+</html>
